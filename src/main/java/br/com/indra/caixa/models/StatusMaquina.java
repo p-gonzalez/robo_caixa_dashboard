@@ -8,27 +8,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class StatusHD implements Serializable {
-
+public class StatusMaquina implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private double espacoVazio;
-	private double espacoUsado;
-	private double espacoTotal;
-
-	public StatusHD() {
-
+	private Long processamento;
+	private Long PingAtividade;
+	private Long statusJVM;
+	
+	public StatusMaquina() {
+		
 	}
 
-	public StatusHD(Long id, double espacoVazio, double espacoUsado, double espacoTotal) {
+	public StatusMaquina(Long id, Long processamento, Long pingAtividade, Long statusJVM) {
 		super();
 		this.id = id;
-		this.espacoVazio = espacoVazio;
-		this.espacoUsado = espacoUsado;
-		this.espacoTotal = espacoTotal;
+		this.processamento = processamento;
+		PingAtividade = pingAtividade;
+		this.statusJVM = statusJVM;
 	}
 
 	public Long getId() {
@@ -39,28 +39,28 @@ public class StatusHD implements Serializable {
 		this.id = id;
 	}
 
-	public double getEspacoVazio() {
-		return espacoVazio;
+	public Long getProcessamento() {
+		return processamento;
 	}
 
-	public void setEspacoVazio(double espacoVazio) {
-		this.espacoVazio = espacoVazio;
+	public void setProcessamento(Long processamento) {
+		this.processamento = processamento;
 	}
 
-	public double getEspacoUsado() {
-		return espacoUsado;
+	public Long getPingAtividade() {
+		return PingAtividade;
 	}
 
-	public void setEspacoUsado(double espacoUsado) {
-		this.espacoUsado = espacoUsado;
+	public void setPingAtividade(Long pingAtividade) {
+		PingAtividade = pingAtividade;
 	}
 
-	public double getEspacoTotal() {
-		return espacoTotal;
+	public Long getStatusJVM() {
+		return statusJVM;
 	}
 
-	public void setEspacoTotal(double espacoTotal) {
-		this.espacoTotal = espacoTotal;
+	public void setStatusJVM(Long statusJVM) {
+		this.statusJVM = statusJVM;
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class StatusHD implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		StatusHD other = (StatusHD) obj;
+		StatusMaquina other = (StatusMaquina) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -87,7 +87,6 @@ public class StatusHD implements Serializable {
 			return false;
 		return true;
 	}
-
 	
 	
 }
